@@ -6,6 +6,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './index.css'
 import { Home } from './components/sections/Home'
+import { About } from './components/sections/About'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,10 +28,11 @@ function App() {
   return (
     <>
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
-      <div className={`min-h-screen transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} 
-        bg-slate-900 text-gray-300`}></div>
-      <Navbar />
-      <Home />
+      <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} bg-black text-gray-300`}>
+        <Navbar />
+        <Home />
+        <About />
+      </div>
     </>
   );
 }
