@@ -25,7 +25,8 @@ function App() {
   return (
     <>
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
-      
+      <div className={`min-h-screen transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} 
+        bg-slate-900 text-gray-300`}></div>
     </>
   );
 }
