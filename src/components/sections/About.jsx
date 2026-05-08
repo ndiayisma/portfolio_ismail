@@ -8,8 +8,13 @@ export const About = () => {
                     J'aime relever des défis techniques et apprendre de nouvelles technologies pour améliorer mes compétences. 
                     Mon objectif est de créer des expériences utilisateur exceptionnelles tout en écrivant du code propre et maintenable.
                     <br /><br />
-                    En dehors du développement, j'aime explorer les dernières tendances technologiques, 
+                    J'aime explorer les dernières tendances technologiques, 
                     contribuer à des projets open source et partager mes connaissances avec la communauté. 
+                    En dehors du développement, je suis une homme très curieux, qui cherche à apprendre et découvrir de nouvelles choses.<br/>
+                    Sinon, à mes heures perdues, j'aime faire du sport, que ce soit la musculation ou le street basket,
+                    et je suis également un grand fan de jeux vidéo, en particulier les jeux de combat (Street Fighter, Tekken etc...), 
+                    un domaine qui regroupe une grande communauté dans le monde et des locaux de compétitions, avec des titres
+                    <br/>
                     Je suis toujours à la recherche de nouvelles opportunités pour collaborer sur des projets passionnants 
                     et continuer à grandir en tant que développeur.
                 </p>
