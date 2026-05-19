@@ -10,7 +10,7 @@ export const Projects = () => {
                     Voici quelques-uns de mes projets récents sur lesquels j'ai travaillé.
                 </p>
                 <div className="grid md:grid-cols-2 gap-8 mt-12">
-                    <div className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:translate-y-1 hover:border-green-500 transition-colors">
+                    <div className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:translate-y-1 hover:border-green-500 transition-colors transition-transform">
                         <h3 className="font-bold text-lg text-white mb-4">Projet Conventio</h3>
                         <p className="text-gray-300">
                             Une application web de gestion de conventions de stage pour les étudiants de BTS. 
