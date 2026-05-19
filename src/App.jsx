@@ -11,6 +11,7 @@ import { Cursus } from './components/sections/Cursus'
 import { Skills } from './components/sections/Skills'
 import { Projects } from './components/sections/Projects'
 import { Documents } from './components/sections/Documents'
+import { Contact } from './components/sections/Contact'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +41,7 @@ function App() {
         <Skills />
         <Projects />
         <Documents />
+        <Contact />
       </div>
     </>
   );
