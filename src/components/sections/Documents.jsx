@@ -43,7 +43,6 @@ export const Documents = () => {
                                 {/* Contenu */}
                                 <div className="p-6">
                                     <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">
-                                        <span>{doc.icon}</span>
                                         {doc.title}
                                     </h3>
                                     <a
