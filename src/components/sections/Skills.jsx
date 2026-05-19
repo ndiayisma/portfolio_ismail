@@ -1,3 +1,5 @@
+import { RevealOnScroll } from "../RevealOnScroll";
+
 export const Skills = () => {
     const skills = [
         { name: "HTML", level: 90 },
@@ -10,6 +12,7 @@ export const Skills = () => {
 
     return (
         <section id="skills" className="scroll-offset py-16 md:py-20" data-aos="fade-up">
+            <RevealOnScroll>
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl md:text-5xl font-bold text-stale-500 mb-12 py-8 text-center">
                     Mes Compétences
@@ -25,6 +28,7 @@ export const Skills = () => {
                     ))}
                 </div>
             </div>
+            </RevealOnScroll>
         </section>
     );
 };

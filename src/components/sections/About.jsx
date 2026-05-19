@@ -1,6 +1,9 @@
+import { RevealOnScroll } from "../RevealOnScroll";
+
 export const About = () => {
     return (
         <section id="about" className="min-h-screen flex items-center justify-center px-4 py-16">
+            <RevealOnScroll>
             <div className="max-w-4xl text-center">
                 <h2 className="text-4xl font-bold text-cyan-400 mb-8">A propos de moi</h2>
                 <p className="text-lg text-gray-300 leading-relaxed">
@@ -19,6 +22,7 @@ export const About = () => {
                     et continuer à grandir en tant que développeur.
                 </p>
             </div>
+            </RevealOnScroll>
         </section>
     );
 }
