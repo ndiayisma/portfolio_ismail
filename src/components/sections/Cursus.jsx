@@ -49,7 +49,7 @@ export const Cursus = () => {
     ];
 
     return (
-        <section id="parcours" className="scroll-offset py-16 md:py-20" data-aos="fade-up">
+        <section id="cursus" className="scroll-offset py-16 md:py-20" data-aos="fade-up">
             <RevealOnScroll>
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl md:text-5xl font-bold text-pink-500 mb-12 py-8 text-center">

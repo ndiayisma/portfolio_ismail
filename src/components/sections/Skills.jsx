@@ -2,12 +2,17 @@ import { RevealOnScroll } from "../RevealOnScroll";
 
 export const Skills = () => {
     const skills = [
-        { name: "HTML", level: 90 },
-        { name: "CSS", level: 85 },
-        { name: "JavaScript", level: 80 },
-        { name: "React", level: 75 },
-        { name: "Node.js", level: 70 },
-        { name: "Python", level: 65 },
+        { name: "HTML", icon: "devicon-html5-plain" },
+        { name: "CSS", icon: "devicon-css3-plain" },
+        { name: "JavaScript", icon: "devicon-javascript-plain" },
+        { name: "React", icon: "devicon-react-original" },
+        { name: "Node.js", icon: "devicon-nodejs-plain" },
+        { name: "Python", icon: "devicon-python-plain" },
+        { name: "PHP", icon: "devicon-php-plain" },
+        { name: "SQL", icon: "devicon-database-plain" },
+        { name: "Git", icon: "devicon-git-plain" },
+        { name: "Docker", icon: "devicon-docker-plain" },
+        { name: "MongoDB", icon: "devicon-mongodb-plain" },
     ];
 
     return (
@@ -19,11 +24,9 @@ export const Skills = () => {
                 </h1>
                 <div className="grid md:grid-cols-2 gap-8">
                     {skills.map((skill, index) => (
-                        <div key={index} className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-red-500 transition-colors">
-                            <h3 className="font-bold text-lg text-white mb-4">{skill.name}</h3>
-                            <div className="w-full bg-gray-700 rounded-full h-2.5">
-                                <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${skill.level}%` }}></div>
-                            </div>
+                        <div key={index} className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-green-500 transition-colors flex items-center gap-4">
+                            <i className={`${skill.icon} colored text-5xl`}></i>
+                            <h3 className="font-bold text-lg text-white">{skill.name}</h3>
                         </div>
                     ))}
                 </div>
