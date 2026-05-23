@@ -13,6 +13,7 @@ import { Projects } from './components/sections/Projects'
 import { Documents } from './components/sections/Documents'
 import { Contact } from './components/sections/Contact'
 
+
 function App() {
   const [count, setCount] = useState(0)
   const [isLoading, setIsLoading] = useState(true);

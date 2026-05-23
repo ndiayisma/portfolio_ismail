@@ -25,7 +25,7 @@ export const LoadingScreen = ({ onComplete }) => {
     const progress = (index / fullName.length) * 100;
 
     return (
-        <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 to-slate-900 z-50">
+        <div className="fixed inset-0 flex flex-col items-center justify-center bg-slate-950 z-50">
             <div className="flex flex-col items-center gap-8">
                 <div className="text-4xl font-bold text-cyan-400">
                     {text}<span className="animate-pulse ml-1">|</span>

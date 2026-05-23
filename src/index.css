@@ -1,12 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: #000000;
+  font-family: "Geist", sans-serif;
+  background: #0f172a;
   color: #ffffff;
+}
+
+/* Unified Background */
+.bg-primary {
+  @apply bg-slate-950;
+}
+
+.michroma {
+  font-family: 'Michroma', sans-serif;
+}
+
+section {
+  @apply bg-slate-950;
 }
 
 @layer utilities {
@@ -19,8 +39,64 @@ body {
     }
   }
 
+  @keyframes shine {
+    0% {
+      transform: translateX(-4em);
+    }
+    100% {
+      transform: translateX(15em);
+    }
+  }
+
+  @keyframes holographic {
+    0% {
+      border-color: #00d5ed;
+      box-shadow: 0 0 20px rgba(0, 255, 225, 0.4), inset 0 0 20px rgba(255, 0, 255, 0.1);
+    }
+    25% {
+      border-color: #00438f;
+      box-shadow: 0 0 20px rgba(0, 13, 255, 0.4), inset 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+      border-color: #0003a0;
+      box-shadow: 0 0 20px rgba(0, 5, 19, 0.4), inset 0 0 20px rgba(0, 255, 136, 0.1);
+    }
+    75% {
+      border-color: #00438f;
+      box-shadow: 0 0 20px rgba(0, 13, 255, 0.4), inset 0 0 20px rgba(255, 255, 0, 0.1);
+    }
+    100% {
+      border-color: #00D5ED;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 20px rgba(255, 0, 255, 0.1);
+    }
+  }
+
+  @keyframes holoReflex {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
   .animate-loading {
     animation: loading 1.5s ease infinite;
+  }
+
+  .animate-holographic {
+    animation: holographic 4s ease-in-out infinite;
+  }
+
+  .project-card {
+    @apply border-cyan-400;
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    animation: holographic 4s ease-in-out infinite;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
   }
 
   .reveal {
@@ -32,5 +108,95 @@ body {
   .reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@layer components {
+  button,
+  .btn {
+    @apply relative text-lg px-12 py-2 border-2 border-blue-500 rounded-xl overflow-hidden transition-all duration-300 leading-[1.4em] tracking-wider bg-gradient-to-r from-blue-500/10 via-transparent to-blue-500/10 text-blue-500;
+    font-family: inherit;
+    box-shadow: inset 0 0 10px rgba(63, 133, 151, 0.4), 0 0 9px 3px rgba(34, 83, 37, 0.1);
+  }
+
+  button::before,
+  .btn::before {
+    content: "";
+    @apply absolute left-[-4em] w-16 h-full top-0 transition-transform;
+    transition: transform 0.4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(155, 126, 218, 0.1) 40%, rgba(155, 126, 218, 0.1) 60%, transparent 100%);
+  }
+
+  button:hover,
+  .btn:hover {
+    @apply text-blue-300;
+    box-shadow: inset 0 0 10px rgba(126, 177, 218, 0.6), 0 0 9px 3px rgba(126, 183, 218, 0.2);
+  }
+
+  button:hover::before,
+  .btn:hover::before {
+    transform: translateX(15em);
+  }
+
+  /* MessageBox Styles */
+  .message-box {
+    @apply px-6 py-4 rounded-lg border-2 backdrop-blur-md max-w-md;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .message-box-success {
+    @apply bg-green-500/20 border-green-400;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+
+  .message-box-error {
+    @apply bg-red-500/20 border-red-400;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+
+  .message-box-info {
+    @apply bg-blue-500/20 border-blue-400;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .message-icon {
+    @apply w-6 h-6 rounded-full flex items-center justify-center font-bold text-lg;
+  }
+
+  .message-icon-success {
+    @apply bg-green-400 text-green-900;
+  }
+
+  .message-icon-error {
+    @apply bg-red-400 text-red-900;
+  }
+
+  .message-icon-info {
+    @apply bg-blue-400 text-blue-900;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Section Transitions */
+  section {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  a[href^="#"] {
+    @apply transition-colors duration-300;
+  }
+
+  /* Smooth page transitions */
+  * {
+    scroll-behavior: smooth;
   }
 }

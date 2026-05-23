@@ -20,7 +20,7 @@ export const Documents = () => {
     ];
 
     return (
-        <section id="documents" className="min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-gradient-to-b from-black to-slate-900">
+        <section id="documents" className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
             <RevealOnScroll>
                 <div className="max-w-6xl w-full">
                     <h2 className="text-4xl font-bold text-cyan-400 mb-12 text-center">Mes Documents</h2>
@@ -29,7 +29,7 @@ export const Documents = () => {
                         {documents.map((doc, index) => (
                             <div
                                 key={index}
-                                className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg border-2 border-cyan-400 overflow-hidden hover:shadow-lg hover:shadow-cyan-400/50 transition-all"
+                                className="bg-slate-900 rounded-lg border-2 border-cyan-400 overflow-hidden hover:shadow-lg hover:shadow-cyan-400/50 transition-all"
                             >
                                 {/* Aperçu PDF */}
                                 <div className="w-full h-64 bg-black border-b-2 border-cyan-400 overflow-hidden">
@@ -49,7 +49,7 @@ export const Documents = () => {
                                         href={doc.file}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full block text-center px-4 py-2 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 transition-colors"
+                                        className="w-full block text-center text-white px-4 py-2 btn inline-block"
                                     >
                                         Voir
                                     </a>

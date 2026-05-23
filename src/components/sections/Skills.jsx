@@ -24,7 +24,7 @@ export const Skills = () => {
                 </h1>
                 <div className="grid md:grid-cols-2 gap-8">
                     {skills.map((skill, index) => (
-                        <div key={index} className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-green-500 transition-colors flex items-center gap-4">
+                        <div key={index} className="bg-slate-900 border border-gray-700 p-6 rounded-lg hover:border-green-500 transition-colors flex items-center gap-4">
                             <i className={`${skill.icon} colored text-5xl`}></i>
                             <h3 className="font-bold text-lg text-white">{skill.name}</h3>
                         </div>

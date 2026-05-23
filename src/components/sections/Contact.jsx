@@ -1,30 +1,48 @@
 import { RevealOnScroll } from "../RevealOnScroll";
+import { MessageBox } from "../MessageBox";
 import emailJs from 'emailjs-com';
-import { useEffect } from 'react';
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-    emailJs.sendForm(import.meta.env.VITE_SERVICE_ID, 
-        import.meta.env.VITE_TEMPLATE_ID, 
-        e.target, 
-        import.meta.env.VITE_PUBLIC_KEY)
-        .then((result) => {
-            console.log('Email envoyé avec succès :', result.text);
-            alert('Merci pour votre message ! Je vous répondrai dès que possible.');
-            e.target.reset();
-        })
-        .catch((error) => {
-            console.error('Erreur lors de l\'envoi de l\'email :', error.text);
-            alert('Une erreur est survenue. Veuillez réessayer plus tard.');
-        });
-};
+import { useState, useEffect } from 'react';
 
 export const Contact = () => {
+    const [messageBox, setMessageBox] = useState({ isOpen: false, message: '', type: 'success' });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        emailJs.sendForm(import.meta.env.VITE_SERVICE_ID, 
+            import.meta.env.VITE_TEMPLATE_ID, 
+            e.target, 
+            import.meta.env.VITE_PUBLIC_KEY)
+            .then((result) => {
+                console.log('Email envoyé avec succès :', result.text);
+                setMessageBox({
+                    isOpen: true,
+                    message: 'Merci pour votre message ! Je vous répondrai dès que possible.',
+                    type: 'success'
+                });
+                e.target.reset();
+            })
+            .catch((error) => {
+                console.error('Erreur lors de l\'envoi de l\'email :', error.text);
+                setMessageBox({
+                    isOpen: true,
+                    message: 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                    type: 'error'
+                });
+            });
+    };
+
     useEffect(() => {
         emailJs.init(import.meta.env.VITE_PUBLIC_KEY);
     }, []);
+
     return (
         <section id="contact" className="scroll-offset py-16 md:py-20" data-aos="fade-up">
+            <MessageBox 
+                message={messageBox.message}
+                type={messageBox.type}
+                isOpen={messageBox.isOpen}
+                onClose={() => setMessageBox({ ...messageBox, isOpen: false })}
+            />
             <RevealOnScroll>
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl md:text-5xl font-bold text-green-400 mb-12 py-8 text-center">
@@ -40,7 +58,7 @@ export const Contact = () => {
                             type="text"
                             id="name"
                             name="name"
-                            className="w-full bg-gray-800 text-gray-300 border border-white-300 rounded px-4 py-3 placeholder:text-gray-500 border border-gray-600 focus:ring-2 transition duration-300 focus:ring-green-400 focus:outline-none"
+                            className="w-full bg-slate-900 text-gray-300 border border-gray-600 rounded px-4 py-3 placeholder:text-gray-500 focus:ring-2 transition duration-300 focus:ring-green-400 focus:outline-none"
                             placeholder="Votre nom"
                             required
                         />
@@ -51,7 +69,7 @@ export const Contact = () => {
                             type="email"
                             id="email"
                             name="email"
-                            className="w-full bg-gray-800 text-gray-300 border border-white-300 rounded px-4 py-3 placeholder:text-gray-500 border border-gray-600 focus:ring-2 transition duration-300 focus:ring-green-400 focus:outline-none"
+                            className="w-full bg-slate-900 text-gray-300 border border-gray-600 rounded px-4 py-3 placeholder:text-gray-500 focus:ring-2 transition duration-300 focus:ring-green-400 focus:outline-none"
                             placeholder="Votre adresse email"
                             required
                         />
@@ -62,14 +80,14 @@ export const Contact = () => {
                             id="message"
                             name="message"
                             rows="5"
-                            className="w-full bg-gray-800 text-gray-300 border border-white-300 rounded px-4 py-3 placeholder:text-gray-500 border border-gray-600 focus:ring-2 transition duration-300 focus:ring-green-400 focus:outline-none"
+                            className="w-full bg-slate-900 text-gray-300 border border-gray-600 rounded px-4 py-3 placeholder:text-gray-500 focus:ring-2 transition duration-300 focus:ring-green-400 focus:outline-none"
                             placeholder="Votre message"
                             required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                        className="text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                     >
                         Envoyer
                     </button>

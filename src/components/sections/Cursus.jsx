@@ -52,17 +52,17 @@ export const Cursus = () => {
         <section id="cursus" className="scroll-offset py-16 md:py-20" data-aos="fade-up">
             <RevealOnScroll>
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-bold text-pink-500 mb-12 py-8 text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold text-blue-500 mb-12 py-8 text-center">
                         Mon Parcours
                     </h1>
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* Colonne Formation */}
                         <div>
-                            <h2 className="text-2xl font-bold text-pink-500 mb-6">Formation</h2>
+                            <h2 className="text-2xl font-bold text-blue-500 mb-6">Formation</h2>
                             <div className="flex flex-col gap-4">
                                 {formations.map((formation, index) => (
-                                    <div key={index} className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-white-500 transition-colors">
+                                    <div key={index} className="bg-slate-900 border border-gray-700 p-6 rounded-lg hover:border-white-500 transition-colors">
                                         <div className="flex justify-between items-start mb-2">
                                             <h3 className="font-bold text-lg text-white">{formation.titre}</h3>
                                             <span className="text-sm text-gray-400 whitespace-nowrap ml-4">{formation.periode}</span>
@@ -75,10 +75,10 @@ export const Cursus = () => {
 
                         {/* Colonne Expérience Professionnelle */}
                         <div>
-                            <h2 className="text-2xl font-bold text-pink-500 mb-6">Expérience Professionnelle</h2>
+                            <h2 className="text-2xl font-bold text-blue-700 mb-6">Expérience Professionnelle</h2>
                             <div className="flex flex-col gap-4">
                                 {experiences.map((experience, index) => (
-                                    <div key={index} className="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-stale-100 transition-colors">
+                                    <div key={index} className="bg-slate-900 border border-gray-700 p-6 rounded-lg hover:border-stale-100 transition-colors">
                                         <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
                                             <h3 className="font-bold text-lg text-white">{experience.titre}</h3>
                                             <span className="text-sm text-gray-400">{experience.periode}</span>
@@ -94,7 +94,7 @@ export const Cursus = () => {
                     <div className="py-12 text-center">
                         <a
                             href="PDF/CV_Ismail.pdf"
-                            className="inline-block px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors"
+                            className="btn inline-block px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors btn::before:bg-white"
                         >
                             Télécharger mon CV
                         </a>
