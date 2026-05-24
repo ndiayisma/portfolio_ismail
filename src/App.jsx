@@ -12,6 +12,7 @@ import { Skills } from './components/sections/Skills'
 import { Projects } from './components/sections/Projects'
 import { Documents } from './components/sections/Documents'
 import { Contact } from './components/sections/Contact'
+import { Footer } from './components/Footer';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Projects />
         <Documents />
         <Contact />
+        <Footer />
       </div>
     </>
   );
