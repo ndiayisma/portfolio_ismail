@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrollOpacity, setScrollOpacity] = useState(0);
+    const [activeSection, setActiveSection] = useState('home');
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -15,6 +16,19 @@ export const Navbar = () => {
             const scrollY = window.scrollY;
             const opacity = Math.min(scrollY / 100, 1);
             setScrollOpacity(opacity);
+
+            // Déterminer la section active
+            const sections = ['home', 'about', 'skills', 'projects', 'documents', 'contact'];
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        setActiveSection(sectionId);
+                        break;
+                    }
+                }
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -50,16 +64,24 @@ export const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <ul className="hidden md:flex items-center gap-8">
-                        {navItems.map((item) => (
-                            <li key={item.href}>
-                                <a 
-                                    href={item.href} 
-                                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                                >
-                                    {item.label}
-                                </a>
-                            </li>
-                        ))}
+                        {navItems.map((item) => {
+                            const sectionId = item.href.substring(1); // Enlever le #
+                            const isActive = activeSection === sectionId;
+                            return (
+                                <li key={item.href}>
+                                    <a 
+                                        href={item.href} 
+                                        className={`transition-all duration-200 text-sm font-medium ${
+                                            isActive 
+                                                ? 'text-cyan-400 border-b-2 border-cyan-400 pb-1' 
+                                                : 'text-gray-300 hover:text-cyan-300'
+                                        }`}
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            );
+                        })}
                     </ul>
 
                     {/* Mobile Menu Button */}
@@ -74,23 +96,33 @@ export const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu */}
-                {isOpen && (
-                    <div className="md:hidden bg-slate-900 border-t border-gray-700">
-                        <ul className="flex flex-col px-6 py-4 gap-4">
-                            {navItems.map((item) => (
-                                <li key={item.href}>
-                                    <a 
-                                        href={item.href} 
-                                        className="text-gray-300 hover:text-white transition-colors duration-200 block py-2"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {item.label}
-                                    </a>
-                                </li>
-                            ))}
+                <div className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+                    <div className="bg-gradient-to-b from-slate-900/95 to-slate-950/95 backdrop-blur-md border-t-2 border-cyan-400/30 border-b border-cyan-400/20">
+                        <ul className="flex flex-col px-6 py-6 gap-3">
+                            {navItems.map((item, index) => {
+                                const sectionId = item.href.substring(1); // Enlever le #
+                                const isActive = activeSection === sectionId;
+                                return (
+                                    <li key={item.href} style={{
+                                        animation: isOpen ? `slideInLeft 0.3s ease-out ${index * 0.05}s both` : 'none'
+                                    }}>
+                                        <a 
+                                            href={item.href} 
+                                            className={`block px-4 py-3 rounded-lg transition-all duration-300 text-sm font-medium ${
+                                                isActive 
+                                                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border-l-2 border-cyan-400 shadow-lg shadow-cyan-400/20' 
+                                                    : 'text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 border-l-2 border-transparent'
+                                            }`}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
-                )}
+                </div>
             </nav>
 
             {/* Spacer for fixed navbar */}
