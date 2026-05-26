@@ -22,7 +22,7 @@ export const Cursus = () => {
     const experiences = [
         {
             titre: "SmileRepair",
-            periode: "24 Juin 2023 - 27 Juin 2024 / 13 janvier - 28 février 2025",
+            periode: "3 Juin 2024 - 27 Juin 2024 / 13 janvier - 28 février 2025",
             description: "Durant mes deux années de BTS, j'ai eu le privilège d'effectuer un stage professionnel " +
                 "dans le domaine du développement web en utilisant le CMS WordPress. Cette expérience m'a permis de mettre en pratique mes compétences en développement tout en découvrant les spécificités de la création de sites web avec WordPress. " +
                 "J'ai travaillé sur divers projets, contribuant à la conception, au développement et à la maintenance de sites web pour des clients variés. " +
