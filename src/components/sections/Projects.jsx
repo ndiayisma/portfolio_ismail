@@ -3,21 +3,24 @@ import { RevealOnScroll } from "../RevealOnScroll";
 const projects = [
     {
         title: "Projet Conventio",
-        description: "Une application web de gestion de conventions de stage pour les étudiants de BTS.",
-        technologies: ["Symfony", "PHP", "MySQL"],
+        description: "Une application web réalisé en groupe pour la gestion de conventions de stage pour les étudiants de BTS. "
+        + "Elle permet de créer, gérer et suivre les conventions de stage, facilitant ainsi le processus administratif pour les étudiants et les entreprises.",
+        technologies: ["Symfony", "PHP", "MySQL", "Docker", "GitHub", "PhPStorm"],
         image: "/ExempleConventio.png",
         link: "https://github.com/maxervj/Conventio"
     },
     {
         title: "GSB-Express",
-        description: "Une API REST pour la gestion de données avec intégration GitHub et Codespace.",
-        technologies: ["ExpressJS", "Postman API", "GitHub", "MongoDB", "Android Studio"],
+        description: "Une Application Mobile avec Architecture MVVM, développée avec Java pour gérer les authentifications sécurisées des visiteurs via les tokens,"
+        + " ainsi aux accès à leur portefeuille de praticiens. Faite aussi en parallèle avec une communication API REST et ExpressJS pour les gestion de données.",
+        technologies: ["ExpressJS", "Postman API", "GitHub", "MongoDB", "Java", "Retrofit", "Android Studio"],
         image: "/GSB.png",
         link: "https://github.com/ndiayisma/api-rest-gsb"
     },
     {
         title: "Cylis",
-        description: "Un site vitrine réalisé avec le Groupe SmileRepair pour la promotion de leurs services basé en Algérie.",
+        description: "Un site vitrine réalisé avec le Groupe SmileRepair pour la promotion de leurs services basé en Algérie."
+         + " Conçu dans le cadre du stage de deuxième année.",
         technologies: ["WordPress"],
         image: "/ExempleCylis.png",
         link: "https://cylis.net"
