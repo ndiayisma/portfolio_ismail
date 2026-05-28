@@ -15,7 +15,7 @@ export const Documents = () => {
         },
         {
             title: "Tableau de Synthèse",
-            file: "tableau_synthese.pdf",
+            file: "tableau_de_synthese.pdf",
         }
     ];
 
