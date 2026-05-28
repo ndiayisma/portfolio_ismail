@@ -1,0 +1,316 @@
+.projet-personnel-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.projet-personnel-modal-content {
+    position: relative;
+    background: linear-gradient(135deg, rgba(20, 20, 30, 0.95) 0%, rgba(30, 15, 40, 0.95) 100%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35) 1;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 60px rgba(255, 107, 53, 0.3);
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.projet-personnel-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #ff6b35;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projet-personnel-modal-close:hover {
+    transform: scale(1.2);
+    color: #f7931e;
+}
+
+.projet-personnel-modal-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+}
+
+.projet-personnel-gradient-blob {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #667eea 100%);
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.projet-personnel-modal-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(102, 126, 234, 0.2));
+    animation: floatGradient 6s ease-in-out infinite;
+}
+
+@keyframes floatGradient {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.projet-personnel-modal-body {
+    padding: 30px;
+}
+
+.markdown-content {
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.markdown-content h1 {
+    font-size: 28px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.markdown-content h2 {
+    font-size: 22px;
+    background: linear-gradient(135deg, #ff6b35, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.markdown-content h3 {
+    font-size: 18px;
+    color: #ff9a56;
+}
+
+.markdown-content p {
+    margin-bottom: 12px;
+    color: #c0c0c0;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.markdown-content li {
+    margin-bottom: 8px;
+    color: #b0b0b0;
+    list-style: none;
+}
+
+.markdown-content code {
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff9a56;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.markdown-content pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+.markdown-content pre code {
+    background: none;
+    color: #ff9a56;
+    padding: 0;
+}
+
+.markdown-content a {
+    color: #ff9a56;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.markdown-content a:hover {
+    color: #f7931e;
+    border-bottom: 1px solid #f7931e;
+}
+
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+/* Scrollbar styling */
+.projet-personnel-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.projet-personnel-modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 10px;
+}
+
+.projet-personnel-modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff6b35, #667eea);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.projet-personnel-modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f7931e, #7c8ff0);
+}
+
+/* Particles animation */
+.projet-personnel-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #ff9a56, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 4s ease-in-out infinite;
+}
+
+.projet-personnel-particle:nth-child(1) {
+    bottom: 50px;
+    right: 30px;
+    animation-delay: 0s;
+}
+
+.projet-personnel-particle:nth-child(2) {
+    bottom: 150px;
+    left: 40px;
+    animation-delay: 0.7s;
+}
+
+.projet-personnel-particle:nth-child(3) {
+    top: 80px;
+    right: 60px;
+    animation-delay: 1.4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.8;
+    }
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid rgba(255, 107, 53, 0.2);
+    border-radius: 50%;
+    border-top: 3px solid #ff6b35;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .projet-personnel-modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .projet-personnel-modal-body {
+        padding: 20px;
+    }
+
+    .markdown-content h1 {
+        font-size: 22px;
+    }
+
+    .markdown-content h2 {
+        font-size: 18px;
+    }
+
+    .markdown-content h3 {
+        font-size: 16px;
+    }
+
+    .projet-personnel-modal-header {
+        height: 150px;
+    }
+}

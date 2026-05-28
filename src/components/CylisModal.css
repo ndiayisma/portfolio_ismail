@@ -1,0 +1,420 @@
+/* Cylis Modal Styles */
+
+.cylis-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.cylis-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  z-index: 1000;
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Holographic Border */
+.cylis-modal-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    #ff9a56 0%, 
+    #ff6b9d 25%, 
+    #667eea 50%, 
+    #764ba2 75%, 
+    #ff9a56 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.cylis-gradient-1,
+.cylis-gradient-2,
+.cylis-gradient-3 {
+  position: absolute;
+  border-radius: 16px;
+  opacity: 0.2;
+}
+
+.cylis-gradient-1 {
+  inset: 0;
+  background: linear-gradient(45deg, #ff9a56, #667eea);
+  filter: blur(10px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.cylis-gradient-2 {
+  inset: 0;
+  background: linear-gradient(135deg, #764ba2, #ff6b9d);
+  filter: blur(20px);
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.cylis-gradient-3 {
+  inset: 0;
+  background: linear-gradient(225deg, #667eea, #ff9a56);
+  filter: blur(15px);
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Modal Content */
+.cylis-modal-content {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(255, 154, 86, 0.08) 0%, 
+    rgba(102, 126, 234, 0.08) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.cylis-close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #ff9a56, #667eea);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 154, 86, 0.4);
+  z-index: 10;
+}
+
+.cylis-close-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 154, 86, 0.6);
+}
+
+.cylis-close-button:active {
+  transform: scale(0.95);
+}
+
+/* README Body */
+.cylis-readme-body {
+  overflow-y: auto;
+  padding-right: 12px;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.cylis-readme-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cylis-readme-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.cylis-readme-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff9a56, #667eea);
+  border-radius: 4px;
+}
+
+.cylis-readme-body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff9a56, #667eea);
+  opacity: 0.8;
+}
+
+/* Loading */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 154, 86, 0.2);
+  border-top: 3px solid #ff9a56;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Markdown Styles */
+.markdown-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.md-h1 {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff9a56, #667eea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 24px 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.md-h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff9a56;
+  margin: 20px 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 154, 86, 0.3);
+}
+
+.md-h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #667eea;
+  margin: 16px 0 8px 0;
+}
+
+.md-p {
+  margin: 8px 0;
+  word-break: break-word;
+}
+
+.md-p.emoji-line {
+  font-size: 15px;
+  margin: 10px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.md-li {
+  margin-left: 20px;
+  margin-bottom: 6px;
+  list-style: none;
+}
+
+.md-li::before {
+  content: "→ ";
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.md-table-row {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: rgba(255, 154, 86, 0.7);
+  margin: 4px 0;
+  padding: 4px 8px;
+  background: rgba(255, 154, 86, 0.05);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.md-link {
+  color: #667eea;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.md-link:hover {
+  color: #ff9a56;
+}
+
+.md-spacer {
+  height: 8px;
+}
+
+strong {
+  color: #ffd166;
+  font-weight: 600;
+}
+
+/* Image Styles */
+.md-image-container {
+  margin: 16px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 154, 86, 0.3);
+  background: rgba(255, 154, 86, 0.05);
+}
+
+.md-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 400px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Footer */
+.cylis-modal-footer {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.github-button,
+.close-footer-button {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.github-button {
+  background: linear-gradient(135deg, #667eea, #ff9a56);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.github-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.close-footer-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.close-footer-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Animated Particles */
+.cylis-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.cylis-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 154, 86, 0.5);
+  animation: moveUp 3s ease-in infinite;
+  animation-delay: var(--delay);
+}
+
+.cylis-particle:nth-child(1) { left: 10%; top: 20%; }
+.cylis-particle:nth-child(2) { left: 20%; top: 40%; }
+.cylis-particle:nth-child(3) { left: 80%; top: 30%; }
+.cylis-particle:nth-child(4) { left: 90%; top: 60%; }
+.cylis-particle:nth-child(5) { left: 50%; top: 10%; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, calc(-50% + 30px));
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-10px) translateX(5px); }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .cylis-modal {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .cylis-modal-content {
+    padding: 20px;
+  }
+
+  .md-h1 { font-size: 20px; }
+  .md-h2 { font-size: 16px; }
+  .md-h3 { font-size: 14px; }
+  .markdown-content { font-size: 13px; }
+  
+  .cylis-close-button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
