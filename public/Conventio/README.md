@@ -1,180 +1,107 @@
-# 📋 Conventio - Gestion des Conventions de Stage
+# Conventio - Gestion des Conventions de Stage
 
-## 🎯 Contexte du Projet
+Plateforme web de gestion des conventions de stage pour faciliter les processus administratifs entre étudiants, professeurs et coordonnateurs.
 
-**Conventio** est une plateforme de gestion des conventions de stage développée pour faciliter les processus administratifs entre étudiants, professeurs et coordonnateurs de stage. Cette application web collaborative permet de créer, gérer, valider et suivre les conventions de stage de manière sécurisée et organisée.
+Contexte: Année scolaire 2023-2024 - BTS SIO Option SLAM
 
-### Période du Projet
-📅 **Année Scolaire 2023-2024 - BTS SIO Option SLAM**
+## Stack Technologique
+- **Backend**: Symfony (PHP) + MySQL
+- **Frontend**: HTML5, CSS3, Twig
+- **Déploiement**: Docker
+- **Versioning**: Git/GitHub
 
-### Objectifs Pédagogiques
-✅ Apprentissage du développement en équipe
-✅ Utilisation d'une architecture MVC robuste
-✅ Gestion de bases de données relationnelles
-✅ Implémentation de fonctionnalités de sécurité
-✅ Respect des cycles SDLC en environnement professionnel
+## Système de Rôles et Permissions
 
----
+### Étudiant (@lycee-faure.fr)
+Création et suivi des conventions de stage personnelles.
 
-## 🏗️ Architecture Technique
+### Professeur (@ac-grenoble.fr)
+Validation et gestion des demandes d'étudiants.
 
-### Stack Technologique
-- **Framework Web** : Symfony (PHP)
-- **Base de données** : MySQL
-- **Frontend** : HTML5, CSS3, Bootstrap/Twig
-- **Outils** : Docker, Git, GitHub
-- **IDE** : PhpStorm
-- **Versionning** : GitHub
+### Administrateur
+Gestion complète des utilisateurs, conventions et archives.
 
-### Technologies de Sécurité
-- **Chiffrement** : Hashage des mots de passe avec bcrypt
-- **Authentification** : Session-based avec contrôle d'accès
-- **Validation** : Input validation côté serveur et client
-
----
-
-## 👥 Système de Rôles
-
-L'application dispose de trois rôles principaux avec des permissions différentes:
-
-### 1️⃣ Élève (Étudiant)
-**Email requis** : `@lycee-faure.fr`
-
-**Permissions:**
-- Consulter son profil personnel
-- Créer une nouvelle convention de stage
-- Télécharger ses documents
-- Suivre l'état de sa convention
-- Contacter son superviseur
-
-### 2️⃣ Professeur (Mentor)
-**Email requis** : `@ac-grenoble.fr`
-
-**Permissions:**
-- Consulter les conventions de ses élèves
-- Valider/rejeter les demandes
-- Ajouter des commentaires
-- Télécharger les documents
-- Générer des rapports
-
-### 3️⃣ DDF (Directeur des Formations)
-**Email spécifique** : Administrateur système
-
-**Permissions:**
-- Gestion complète des utilisateurs
-- Créer/supprimer des conventions
-- Archiver les documents
-- Générer des statistiques
+## Sécurité
+- Authentification par session utilisateur
+- Hashage bcrypt des mots de passe
+- Validation côté serveur et client
+- Contrôle d'accès basé sur les rôles
 - Audit des opérations
 
----
+## Installation
 
-## 🔐 Sécurité et Authentification
-
-### Hashage des Mots de Passe
-- Utilisation de **bcrypt** pour le hashage sécurisé
-- Salt génération automatique
-- Aucun mot de passe stocké en clair
-
-### Contrôle d'Accès
-- Vérification du rôle utilisateur à chaque action
-- Redirection des utilisateurs non autorisés
-- Logs d'accès pour audit
-
-### Validation des Inscriptions
-- **Élèves** : Domaine email `@lycee-faure.fr` requis
-- **Professeurs** : Domaine email `@ac-grenoble.fr` requis
-- **DDF** : Inscription sur invitation uniquement
-
----
-
-## 🚀 Installation et Déploiement
-
-### Prérequis
-- PHP 8.0+
-- MySQL 5.7+
-- Composer
-- Docker (recommandé)
-- Node.js (pour assets)
-
-### Étapes d'Installation
-
-1. **Cloner le repository**
+1. Cloner le repository
 ```bash
 git clone https://github.com/maxervj/Conventio.git
 cd Conventio
 ```
 
-2. **Installer les dépendances**
+2. Installer les dépendances
 ```bash
 composer install
 npm install
 ```
 
-3. **Configurer l'environnement**
+3. Configurer l'environnement
 ```bash
 cp .env.example .env
 # Éditer .env avec vos paramètres
 ```
 
-4. **Initialiser la base de données**
+4. Initialiser la base de données
 ```bash
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
-5. **Compiler les assets**
+5. Compiler les assets
 ```bash
 npm run build
 ```
 
-6. **Démarrer l'application**
+6. Démarrer l'application
 ```bash
 symfony serve
 ```
 
-L'application sera accessible sur `http://localhost:8000`
+L'application sera accessible sur http://localhost:8000
 
----
-
-## 📚 Fonctionnalités Principales
+## Fonctionnalités Principales
 
 ### Gestion des Conventions
-- ✅ Création et modification de conventions
-- ✅ Validation multi-étapes
-- ✅ Signature numérique (support documents PDF)
-- ✅ Versioning des documents
-- ✅ Historique des modifications
+- Création et modification de conventions
+- Validation multi-étapes
+- Signature numérique (support documents PDF)
+- Versioning des documents
+- Historique des modifications
 
 ### Tableau de Bord
-- 📊 Vue d'ensemble des conventions
-- 📈 Statistiques par rôle
-- 🔔 Notifications en temps réel
-- 📅 Calendrier des stages
+- Vue d'ensemble des conventions
+- Statistiques par rôle
+- Notifications en temps réel
+- Calendrier des stages
 
 ### Gestion des Documents
-- 📄 Téléchargement/téléversement sécurisé
-- 🗂️ Organisation par catégorie
-- 🔒 Contrôle d'accès aux fichiers
-- 📋 Génération de rapports automatiques
+- Téléchargement/téléversement sécurisé
+- Organisation par catégorie
+- Contrôle d'accès aux fichiers
+- Génération de rapports automatiques
 
----
-
-## 🧪 Test et Qualité
+## Test et Qualité
 
 ### Comptes de Test
 
-**Élève:**
-- Email: `test.eleve@lycee-faure.fr`
-- Mot de passe: `TestPass123!`
+Élève:
+- Email: test.eleve@lycee-faure.fr
+- Mot de passe: TestPass123!
 
-**Professeur:**
-- Email: `test.prof@ac-grenoble.fr`
-- Mot de passe: `TestPass123!`
+Professeur:
+- Email: test.prof@ac-grenoble.fr
+- Mot de passe: TestPass123!
 
-**DDF:**
-- Email: `admin@conventio.local`
-- Mot de passe: `AdminPass123!`
+Administrateur:
+- Email: admin@conventio.local
+- Mot de passe: AdminPass123!
 
 ### Commandes de Test
 ```bash
@@ -188,33 +115,25 @@ php bin/phpunit --group integration
 php bin/phpunit --coverage-html coverage
 ```
 
----
-
-## 📊 Structure de la Base de Données
+## Structure de la Base de Données
 
 ### Entités Principales
-- **User** : Gestion des utilisateurs et authentification
-- **Convention** : Convention de stage
-- **Document** : Documents associés
-- **Validation** : Historique des validations
-- **Notification** : Système de notifications
+- User: Gestion des utilisateurs et authentification
+- Convention: Convention de stage
+- Document: Documents associés
+- Validation: Historique des validations
+- Notification: Système de notifications
 
----
-
-## 🎓 Apprentissages Clés
+## Apprentissages Clés
 
 Ce projet a permis d'acquérir des compétences en:
 
-✅ **Développement Symfony** - MVC, Routing, ORM
-✅ **Base de données** - SQL, Doctrine, Migrations
-✅ **Sécurité web** - Authentification, CSRF, XSS protection
-✅ **Travail en équipe** - Git, collaboration GitHub
-✅ **DevOps** - Docker, déploiement
-✅ **Gestion de projet** - Agile, Sprint planning
-
----
-
-## 👥 Équipe de Développement
+- Développement Symfony (MVC, Routing, ORM)
+- Base de données (SQL, Doctrine, Migrations)
+- Sécurité web (Authentification, CSRF, XSS protection)
+- Travail en équipe (Git, collaboration GitHub)
+- DevOps (Docker, déploiement)
+- Gestion de projet (Agile, Sprint planning)
 
 Projet réalisé en équipe dans le cadre du BTS SIO Option SLAM.
 

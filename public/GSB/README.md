@@ -1,48 +1,25 @@
-# 🚑 GSB-Express - Gestion de Visites & API
+# GSB-Express - Gestion des Visites et API REST
 
-## 💊 Contexte
+Application mobile Android intégrée avec API REST pour la gestion des visites et praticiens du groupe pharmaceutique GSB.
 
-Projet de développement **Novembre 2025 - Avril 2026** réalisant une **application mobile Android** avec une **API REST (Express.js)** pour gérer les visites des praticiens et visiteurs du groupe pharmaceutique GSB.
+Période: Novembre 2025 - Avril 2026
 
-**Objectifs:**
-- 📱 Application mobile pour consulter/gérer les praticiens et visites
-- 🔌 API REST sécurisée pour la gestion des données
-- 🔐 Authentification par JWT tokens
-- 📊 Base de données MongoDB
+## Stack Technologique
 
----
+**Backend API**
+- Express.js (Node.js)
+- TypeScript
+- MongoDB
+- Authentification JWT
+- Hashage Bcrypt
 
-## 🪛 Configuration Système
+**Application Mobile**
+- Android (Java)
+- Architecture MVVM
+- Retrofit pour API HTTP
+- SQLite local
 
-- **Windows 10/11** / **macOS Ventura+** / **Linux 2022+**
-- **8 Go RAM** minimum (16 Go recommandé)
-- **Android Studio** : https://developer.android.com/studio?hl=fr
-- **Node.js** : https://nodejs.org/en/download
-
----
-
-## 🗃️ Stack Technologique
-
-### Backend API
-- **Express.js** - Framework Node.js
-- **TypeScript** - Typage fort
-- **MongoDB** - Base de données NoSQL
-- **JWT** - Authentification sécurisée
-- **Bcrypt** - Hash des mots de passe
-- **Express-rate-limit** - Protection contre les attaques
-
-### Frontend Mobile
-- **Android Studio** - Développement mobile
-- **Java** - Langage principal
-- **Retrofit** - Client HTTP typé
-- **SQLite** - Base de données locale
-- **MVVM Architecture** - Pattern de conception
-
----
-
-## 🚀 Déployer l'API Backend
-
-### 1. Cloner et Installer
+## Installation Backend
 
 ```bash
 git clone https://github.com/ndiayisma/api-rest-gsb.git
@@ -50,118 +27,13 @@ cd api-rest-gsb
 npm install
 ```
 
-### 2. Configurer MongoDB
-
-- Créer compte : https://account.mongodb.com/account/login
-- Créer un cluster
-- Copier l'URI de connexion
-
-### 3. Fichier .env
-
-```bash
-# .env
-PORT=3000
-MONGODB_USERNAME=votre_username
-MONGODB_PASSWORD=votre_password
-MONGODB_CLUSTER_URL=votre_cluster_url
-MONGODB_DB_NAME=gsb_db
-JWT_SECRET=secret_jwt_secure
-```
-
-### 4. Démarrer le serveur
+Configurer MongoDB et créer fichier **.env** avec identifiants, puis:
 
 ```bash
 npx ts-node server.ts
 ```
 
-Le serveur démarre sur `http://localhost:3000`
-
----
-
-## 📱 Architecture Android
-
-### Structure du Projet
-
-```
-app/
-├── src/main/
-│   ├── data/
-│   │   ├── models/
-│   │   │   ├── Praticien.java
-│   │   │   └── Visite.java
-│   │   └── api/
-│   │       ├── ApiService.java
-│   │       └── RetrofitClient.java
-│   ├── ui/
-│   │   ├── activities/
-│   │   │   ├── LoginActivity.java
-│   │   │   └── MainActivity.java
-│   │   └── fragments/
-│   │       ├── HomeFragment.java
-│   │       └── VisitesFragment.java
-│   └── res/
-│       ├── layout/
-│       └── drawable/
-└── viewmodel/
-    └── VisitesViewModel.java
-```
-
-### Composants Clés
-
-**Activities** - Écrans principaux de l'application
-- LoginActivity : Authentification utilisateur
-- MainActivity : Navigation principale
-
-**Fragments** - Écrans secondaires
-- HomeFragment : Affichage des praticiens
-- VisitesFragment : Gestion des visites
-
-**SQLite** - Stockage local des données utilisateur
-- Cache praticiens et visites
-- Synchronisation avec API
-
----
-
-## 🛰️ Retrofit & Services API
-
-### Définition des Endpoints
-
-```java
-public interface ApiService {
-    @POST("/auth/login")
-    Call<LoginResponse> login(@Body LoginRequest request);
-    
-    @GET("/praticiens")
-    Call<List<Praticien>> getAllPraticiens(@Header("Authorization") String token);
-    
-    @GET("/visites")
-    Call<List<Visite>> getVisites(@Header("Authorization") String token);
-    
-    @POST("/visites")
-    Call<Visite> createVisite(@Header("Authorization") String token, @Body Visite visite);
-    
-    @PUT("/visites/{id}")
-    Call<Visite> updateVisite(@Header("Authorization") String token, @Path("id") String id, @Body Visite visite);
-}
-```
-
-### Configuration Retrofit
-
-```java
-public class RetrofitClient {
-    private static final String BASE_URL = "https://votre-api.com/api/";
-    
-    public static ApiService getApiService(String token) {
-        OkHttpClient client = new OkHttpClient.Builder()
-            .addInterceptor(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request request = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer " + token)
-                        .build();
-                    return chain.proceed(request);
-                }
-            })
+API accessible sur http://localhost:3000
             .build();
         
         Retrofit retrofit = new Retrofit.Builder()
