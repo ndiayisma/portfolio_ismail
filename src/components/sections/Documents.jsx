@@ -7,7 +7,7 @@ export const Documents = () => {
     const documents = [
         {
             title: "Mon CV",
-            file: "CV_Ismail.pdf",
+            file: "CV_Ndiaye_Ismail.pdf",
         },
         {
             title: "Veille Informatique",
