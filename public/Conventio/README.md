@@ -169,6 +169,4 @@ Ce projet est développé à des fins éducatives.
 
 ---
 
-**Repository:** [github.com/maxervj/Conventio](https://github.com/maxervj/Conventio)
-
-**Jury 2024** - BTS SIO Option SLAM - Lycée Gabriel Fauré, Annecy
+**June 2026** - BTS SIO Option SLAM - Lycée Gabriel Fauré, Annecy

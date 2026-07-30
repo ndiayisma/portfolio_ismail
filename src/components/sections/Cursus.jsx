@@ -3,6 +3,11 @@ import { RevealOnScroll } from "../RevealOnScroll";
 export const Cursus = () => {
     const formations = [
         {
+            titre: "L3 Développement Web - Alternance",
+            periode: "2026-2027",
+            lieu: "MyDigitalSchool - Annecy"
+        },
+        {
             titre: "BTS SIO - Option SLAM",
             periode: "2023-2026",
             lieu: "Lycée Gabriel Fauré - Annecy"
