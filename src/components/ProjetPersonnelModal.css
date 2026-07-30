@@ -52,18 +52,19 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: transparent;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border: none;
-    font-size: 24px;
-    color: #ff6b35;
+    color: white;
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
 }
 
 .projet-personnel-modal-close:hover {
@@ -117,7 +118,8 @@
 
 .markdown-content {
     color: #e0e0e0;
-    line-height: 1.8;
+    line-height: 1.75;
+    font-size: 15px;
 }
 
 .markdown-content h1,

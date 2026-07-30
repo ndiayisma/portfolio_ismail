@@ -1,151 +1,71 @@
-import { useEffect, useState } from 'react';
 import './CylisModal.css';
 
 export const CylisModal = ({ isOpen, onClose }) => {
-  const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setLoading(true);
-      // Fetch le README depuis le dossier public
-      fetch('/Cylis/README.md')
-        .then(res => res.text())
-        .then(text => {
-          setContent(text);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error('Erreur lors du chargement du README:', err);
-          setLoading(false);
-        });
-    }
-  }, [isOpen]);
-
   if (!isOpen) return null;
+
+  const project = {
+    title: 'Cylis',
+    subtitle: 'Site vitrine pour le groupe SmileRepair',
+    summary:
+      'Cylis a été réalisé comme une vitrine digitale simple, moderne et efficace pour présenter les services du groupe SmileRepair. Le travail portait sur la clarté du message, la cohérence du design et la qualité de la présentation en ligne.',
+    highlights: [
+      'Création d’un design sobre, professionnel et adapté à la communication commerciale',
+      'Structuration du contenu pour améliorer la lisibilité et la compréhension du visiteur',
+      'Mise en ligne d’un site prêt à être présenté à un client ou à une structure partenaire'
+    ],
+    stack: ['WordPress', 'Design web', 'SEO de base'],
+    link: 'https://cylis.net'
+  };
 
   return (
     <>
-      {/* Backdrop */}
       <div className="cylis-modal-backdrop" onClick={onClose} />
-      
-      {/* Modal */}
+
       <div className="cylis-modal">
-        {/* Holographic border */}
         <div className="cylis-modal-border">
           <div className="cylis-gradient-1"></div>
           <div className="cylis-gradient-2"></div>
           <div className="cylis-gradient-3"></div>
         </div>
 
-        {/* Content */}
         <div className="cylis-modal-content">
-          <button 
-            className="cylis-close-button"
-            onClick={onClose}
-            aria-label="Fermer"
-          >
+          <button className="cylis-close-button" onClick={onClose} aria-label="Fermer">
             ✕
           </button>
 
           <div className="cylis-readme-body">
-            {loading ? (
-              <div className="loading-spinner">
-                <div className="spinner"></div>
-                <p>Chargement du README...</p>
-              </div>
-            ) : (
-              <div className="markdown-content">
-                {content.split('\n').map((line, idx) => {
-                  // Image markdown
-                  if (line.startsWith('![')) {
-                    const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
-                    const match = line.match(imageRegex);
-                    if (match) {
-                      return (
-                        <div key={idx} className="md-image-container">
-                          <img 
-                            src={match[2]} 
-                            alt={match[1]}
-                            className="md-image"
-                          />
-                        </div>
-                      );
-                    }
-                  }
-                  // Titre H1
-                  if (line.startsWith('# ')) {
-                    return <h1 key={idx} className="md-h1">{line.substring(2)}</h1>;
-                  }
-                  // Titre H2
-                  if (line.startsWith('## ')) {
-                    return <h2 key={idx} className="md-h2">{line.substring(3)}</h2>;
-                  }
-                  // Titre H3
-                  if (line.startsWith('### ')) {
-                    return <h3 key={idx} className="md-h3">{line.substring(4)}</h3>;
-                  }
-                  // Code block
-                  if (line.startsWith('```')) {
-                    return null;
-                  }
-                  // Lien
-                  if (line.includes('[') && line.includes('](')) {
-                    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-                    const parts = line.split(linkRegex);
-                    return (
-                      <p key={idx} className="md-p">
-                        {parts.map((part, i) => {
-                          if (i % 3 === 1) return <strong key={i}>{part}</strong>;
-                          if (i % 3 === 2) return <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="md-link">{part}</a>;
-                          return part;
-                        })}
-                      </p>
-                    );
-                  }
-                  // Liste
-                  if (line.startsWith('- ')) {
-                    return <li key={idx} className="md-li">{line.substring(2)}</li>;
-                  }
-                  // Ligne vide
-                  if (line.trim() === '') {
-                    return <div key={idx} className="md-spacer" />;
-                  }
-                  // Texte normal
-                  return <p key={idx} className="md-p">{line}</p>;
-                })}
-              </div>
-            )}
+            <div className="markdown-content">
+              <h1>{project.title}</h1>
+              <p>
+                <strong>{project.subtitle}</strong>
+              </p>
+              <p>{project.summary}</p>
+
+              <h2>Ce qui ressort du projet</h2>
+              <ul>
+                {project.highlights.map((item, index) => (
+                  <li key={index}>• {item}</li>
+                ))}
+              </ul>
+
+              <h2>Stack</h2>
+              <p>{project.stack.join(' • ')}</p>
+            </div>
           </div>
 
           <div className="cylis-modal-footer">
-            <a 
-              href="https://cylis.net" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="github-button"
-            >
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="github-button">
               Visiter le site →
             </a>
-            <button 
-              className="close-footer-button"
-              onClick={onClose}
-            >
+            <button className="close-footer-button" onClick={onClose}>
               Fermer
             </button>
           </div>
         </div>
 
-        {/* Animated particles */}
         <div className="cylis-particles">
           {[...Array(5)].map((_, i) => (
-            <div 
-              key={i} 
-              className="cylis-particle" 
-              style={{
-                '--delay': `${i * 0.1}s`
-              }}
-            />
+            <div key={i} className="cylis-particle" style={{ '--delay': `${i * 0.1}s` }} />
           ))}
         </div>
       </div>

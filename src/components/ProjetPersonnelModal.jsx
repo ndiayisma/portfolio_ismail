@@ -1,72 +1,26 @@
-import { useState, useEffect } from "react";
-import "./ProjetPersonnelModal.css";
+import './ProjetPersonnelModal.css';
 
 export const ProjetPersonnelModal = ({ isOpen, onClose }) => {
-    const [content, setContent] = useState("");
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (isOpen) {
-            setLoading(true);
-            fetch("/ProjetPersonnel/README.md")
-                .then((response) => response.text())
-                .then((text) => {
-                    setContent(text);
-                    setLoading(false);
-                });
-        }
-    }, [isOpen]);
-
     if (!isOpen) return null;
 
-    const parseMarkdown = (text) => {
-        const lines = text.split("\n");
-        const elements = [];
-
-        lines.forEach((line, index) => {
-            if (line.startsWith("# ")) {
-                elements.push(
-                    <h1 key={index} className="text-3xl font-bold text-orange-400 mb-4">
-                        {line.replace("# ", "")}
-                    </h1>
-                );
-            } else if (line.startsWith("## ")) {
-                elements.push(
-                    <h2 key={index} className="text-2xl font-bold text-orange-400 mb-3 mt-4">
-                        {line.replace("## ", "")}
-                    </h2>
-                );
-            } else if (line.startsWith("### ")) {
-                elements.push(
-                    <h3 key={index} className="text-xl font-bold text-orange-300 mb-2 mt-3">
-                        {line.replace("### ", "")}
-                    </h3>
-                );
-            } else if (line.startsWith("- ")) {
-                elements.push(
-                    <li key={index} className="text-gray-300 ml-4">
-                        → {line.replace("- ", "")}
-                    </li>
-                );
-            } else if (line.trim()) {
-                elements.push(
-                    <p key={index} className="text-gray-300 mb-2">
-                        {line}
-                    </p>
-                );
-            }
-        });
-
-        return elements;
+    const project = {
+        title: 'Projet Personnel',
+        subtitle: 'Guide web autour de la communauté FGC',
+        summary:
+            'Ce projet personnel a été créé pour rendre l’univers des jeux de combat plus accessible, notamment autour de la communauté FGC. L’idée était de proposer un espace clair, simple et agréable à parcourir, avec un contenu pensé pour l’apprentissage et la découverte.',
+        highlights: [
+            'Organisation du contenu pour une lecture intuitive et fluide',
+            'Création d’une interface simple, lisible et adaptée à la découverte',
+            'Base solide pour évoluer vers une véritable ressource communautaire plus complète'
+        ],
+        stack: ['Next.js', 'TailwindCSS', 'Design web'],
+        link: 'https://github.com/ndiayisma/ism-fgc-glossary'
     };
 
     return (
         <div className="projet-personnel-modal-overlay" onClick={onClose}>
             <div className="projet-personnel-modal-content" onClick={(e) => e.stopPropagation()}>
-                <button
-                    className="projet-personnel-modal-close"
-                    onClick={onClose}
-                >
+                <button className="projet-personnel-modal-close" onClick={onClose}>
                     ✕
                 </button>
 
@@ -75,20 +29,28 @@ export const ProjetPersonnelModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="projet-personnel-modal-body">
-                    {loading ? (
-                        <div className="flex justify-center items-center h-40">
-                            <div className="spinner"></div>
-                        </div>
-                    ) : (
-                        <div className="markdown-content">
-                            {parseMarkdown(content)}
-                        </div>
-                    )}
+                    <div className="markdown-content">
+                        <h1>{project.title}</h1>
+                        <p>
+                            <strong>{project.subtitle}</strong>
+                        </p>
+                        <p>{project.summary}</p>
+
+                        <h2>Ce que le projet propose</h2>
+                        <ul>
+                            {project.highlights.map((item, index) => (
+                                <li key={index}>• {item}</li>
+                            ))}
+                        </ul>
+
+                        <h2>Stack</h2>
+                        <p>{project.stack.join(' • ')}</p>
+                    </div>
                 </div>
 
                 <div className="projet-personnel-particle"></div>
-                <div className="projet-personnel-particle" style={{ animationDelay: "0.2s" }}></div>
-                <div className="projet-personnel-particle" style={{ animationDelay: "0.4s" }}></div>
+                <div className="projet-personnel-particle" style={{ animationDelay: '0.2s' }}></div>
+                <div className="projet-personnel-particle" style={{ animationDelay: '0.4s' }}></div>
             </div>
         </div>
     );
