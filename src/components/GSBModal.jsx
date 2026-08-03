@@ -7,11 +7,16 @@ export const GSBModal = ({ isOpen, onClose }) => {
     title: 'GSB-Express',
     subtitle: 'Application mobile et API REST pour la gestion des visites',
     summary:
-      'GSB-Express a été conçu pour accompagner les visiteurs du groupe pharmaceutique dans la gestion de leurs visites et de leurs praticiens. Le projet allie une application Android à une API sécurisée pour offrir une expérience moderne et fiable.',
+      "GSB (Galaxy Swiss Bourdin) est une entreprise pharmaceutique issue d'une fusion entre Galaxy et le conglomérat hélvetique Swiss Bourdin.\n" +
+      'GSB-Express a été conçu pour accompagner les visiteurs du groupe pharmaceutique ' +
+      'dans la gestion de leurs visites et de leurs praticiens. ' +
+      'Le projet allie une application Android (Java) à une API sécurisée (Postman) pour offrir une expérience moderne et fiable.',
     highlights: [
       'Implémentation d’une authentification JWT avec un niveau de sécurité adapté au contexte métier',
       'Architecture MVVM pour séparer clairement logique métier et interface utilisateur',
-      'Gestion des données avec une API REST robuste et une logique de synchronisation locale efficace'
+      'Gestion des données tels que les portefeuilles, praticiens et visiteurs avec une API REST',
+      'Communication sécurisée entre l’application mobile et l’API via Retrofit',
+      'Utilisation de MongoDB pour le stockage des données et ExpressJS pour la gestion des routes'
     ],
     stack: [
       { name: 'Express.js', icon: 'devicon-express-original' },
@@ -40,14 +45,14 @@ export const GSBModal = ({ isOpen, onClose }) => {
           </button>
 
           <div className="gsb-readme-body">
-            <div className="markdown-content">
+            <div className="markdown-content py-4 px-2">
               <h1>{project.title}</h1>
               <p>
                 <strong>{project.subtitle}</strong>
               </p>
-              <p>{project.summary}</p>
+              <p className="gsb-summary">{project.summary}</p>
 
-              <h2>Points forts</h2>
+              <h2>Objectif</h2>
               <ul>
                 {project.highlights.map((item, index) => (
                   <li key={index}>• {item}</li>

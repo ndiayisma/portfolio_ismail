@@ -201,6 +201,10 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.gsb-summary {
+  white-space: pre-line;
+}
+
 .md-h1 {
   font-size: 28px;
   font-weight: 700;
