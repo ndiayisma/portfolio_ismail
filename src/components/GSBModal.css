@@ -235,6 +235,36 @@
   color: rgba(255, 255, 255, 0.82);
 }
 
+.gsb-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gsb-stack-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.gsb-stack-item i {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.gsb-stack-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .md-p.emoji-line {
   font-size: 15px;
   margin: 10px 0;

@@ -13,7 +13,13 @@ export const GSBModal = ({ isOpen, onClose }) => {
       'Architecture MVVM pour séparer clairement logique métier et interface utilisateur',
       'Gestion des données avec une API REST robuste et une logique de synchronisation locale efficace'
     ],
-    stack: ['Express.js', 'MongoDB', 'Java', 'Retrofit', 'Android Studio'],
+    stack: [
+      { name: 'Express.js', icon: 'devicon-express-original' },
+      { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
+      { name: 'Java', icon: 'devicon-java-plain' },
+      { name: 'Retrofit', icon: 'devicon-androidstudio-plain' },
+      { name: 'Android Studio', icon: 'devicon-androidstudio-plain' }
+    ],
     link: 'https://github.com/ndiayisma/api-rest-gsb'
   };
 
@@ -49,7 +55,14 @@ export const GSBModal = ({ isOpen, onClose }) => {
               </ul>
 
               <h2>Stack</h2>
-              <p>{project.stack.join(' • ')}</p>
+              <div className="gsb-stack-list" aria-label="Technologies utilisées">
+                {project.stack.map((item) => (
+                  <span key={item.name} className="gsb-stack-item" title={item.name} aria-label={item.name}>
+                    <i className={`${item.icon} colored`} aria-hidden="true" />
+                    <span className="gsb-stack-name">{item.name}</span>
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
