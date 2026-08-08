@@ -117,37 +117,27 @@
 .gsb-close-button {
   position: absolute;
   top: 16px;
-  left: 16px;
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.14), rgba(0, 255, 255, 0.04));
-  border: 1px solid rgba(0, 255, 255, 0.35);
-  color: #00ffff;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
+  right: 16px;
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  border: none;
+  color: #000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: inherit;
-  backdrop-filter: blur(14px);
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.45s ease,
-    color 0.45s ease,
-    background 0.45s ease;
-  will-change: transform, box-shadow;
-  box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.16), 0 0 15px rgba(0, 255, 255, 0.18);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(255, 0, 255, 0.35);
   z-index: 10;
 }
 
 .gsb-close-button:hover {
-  transform: translateY(-1px) scale(1.04);
-  border-color: rgba(0, 255, 255, 0.55);
-  color: #ffffff;
-  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.22), 0 0 25px rgba(0, 255, 255, 0.32);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 0, 255, 0.6);
 }
 
 .gsb-close-button:active {
@@ -247,6 +237,36 @@
   margin: 10px 0;
   word-break: break-word;
   color: rgba(255, 255, 255, 0.82);
+}
+
+.gsb-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gsb-stack-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.gsb-stack-item i {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.gsb-stack-name {
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .md-p.emoji-line {
@@ -445,10 +465,10 @@ strong {
   .md-h2 { font-size: 16px; }
   .md-h3 { font-size: 14px; }
   .markdown-content { font-size: 13px; }
-
+  
   .gsb-close-button {
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
   }
 }
