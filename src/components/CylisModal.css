@@ -117,27 +117,37 @@
 .cylis-close-button {
   position: absolute;
   top: 16px;
-  right: 16px;
-  background: linear-gradient(135deg, #ff9a56, #667eea);
-  border: none;
-  color: #fff;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  left: 16px;
+  background: linear-gradient(135deg, rgba(255, 154, 86, 0.14), rgba(102, 126, 234, 0.04));
+  border: 1px solid rgba(255, 154, 86, 0.35);
+  color: #ff9a56;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(255, 154, 86, 0.35);
+  font-family: inherit;
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease,
+    color 0.45s ease,
+    background 0.45s ease;
+  will-change: transform, box-shadow;
+  box-shadow: inset 0 0 15px rgba(255, 154, 86, 0.16), 0 0 15px rgba(255, 154, 86, 0.18);
   z-index: 10;
 }
 
 .cylis-close-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(255, 154, 86, 0.6);
+  transform: translateY(-1px) scale(1.04);
+  border-color: rgba(255, 154, 86, 0.55);
+  color: #ffffff;
+  box-shadow: inset 0 0 20px rgba(255, 154, 86, 0.22), 0 0 25px rgba(255, 154, 86, 0.32);
 }
 
 .cylis-close-button:active {
@@ -169,6 +179,28 @@
 .cylis-readme-body::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #ff9a56, #667eea);
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .cylis-modal {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .cylis-modal-content {
+    padding: 20px;
+  }
+
+  .cylis-close-button {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .md-h1 { font-size: 20px; }
+  .md-h2 { font-size: 16px; }
+  .md-h3 { font-size: 14px; }
+  .markdown-content { font-size: 13px; }
 }
 
 /* Loading */

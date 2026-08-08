@@ -24,16 +24,19 @@
 
 .projet-personnel-modal-content {
     position: relative;
-    background: linear-gradient(135deg, rgba(20, 20, 30, 0.95) 0%, rgba(30, 15, 40, 0.95) 100%);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-image: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35) 1;
-    border-radius: 16px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(255, 107, 53, 0.22), transparent 40%),
+        linear-gradient(135deg, rgba(7, 10, 24, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border-radius: 24px;
     width: 90%;
     max-width: 700px;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 0 60px rgba(255, 107, 53, 0.3);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
     animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -50,26 +53,36 @@
 
 .projet-personnel-modal-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
-    border: none;
-    color: white;
+    top: 16px;
+    left: 16px;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.14), rgba(247, 147, 30, 0.04));
+    border: 1px solid rgba(255, 107, 53, 0.35);
+    color: #ff9a56;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.3s ease;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.45s ease,
+        color 0.45s ease,
+        background 0.45s ease;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
+    font-family: inherit;
+    backdrop-filter: blur(14px);
+    box-shadow: inset 0 0 15px rgba(255, 107, 53, 0.16), 0 0 15px rgba(255, 107, 53, 0.18);
+    will-change: transform, box-shadow;
 }
 
 .projet-personnel-modal-close:hover {
-    transform: scale(1.2);
-    color: #f7931e;
+    transform: translateY(-1px) scale(1.04);
+    border-color: rgba(255, 107, 53, 0.55);
+    color: #ffffff;
+    box-shadow: inset 0 0 20px rgba(255, 107, 53, 0.22), 0 0 25px rgba(255, 107, 53, 0.32);
 }
 
 .projet-personnel-modal-header {
@@ -117,7 +130,7 @@
 }
 
 .markdown-content {
-    color: #e0e0e0;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.75;
     font-size: 15px;
 }
@@ -152,7 +165,7 @@
 
 .markdown-content p {
     margin-bottom: 12px;
-    color: #c0c0c0;
+    color: rgba(255, 255, 255, 0.82);
 }
 
 .markdown-content ul,
@@ -163,7 +176,7 @@
 
 .markdown-content li {
     margin-bottom: 8px;
-    color: #b0b0b0;
+    color: rgba(255, 255, 255, 0.78);
     list-style: none;
 }
 
@@ -216,29 +229,30 @@
 }
 
 .projet-personnel-modal-content::-webkit-scrollbar-track {
-    background: rgba(255, 107, 53, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
 }
 
 .projet-personnel-modal-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ff6b35, #667eea);
+    background: linear-gradient(180deg, #ff6b35, #f7931e);
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
 .projet-personnel-modal-content::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #f7931e, #7c8ff0);
+    background: linear-gradient(180deg, #f7931e, #667eea);
 }
 
 /* Particles animation */
 .projet-personnel-particle {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 2px;
+    height: 2px;
     background: radial-gradient(circle, #ff9a56, transparent);
     border-radius: 50%;
     pointer-events: none;
     animation: float 4s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(255, 107, 53, 0.5);
 }
 
 .projet-personnel-particle:nth-child(1) {
@@ -257,6 +271,39 @@
     top: 80px;
     right: 60px;
     animation-delay: 1.4s;
+}
+
+@media (max-width: 768px) {
+    .projet-personnel-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .projet-personnel-modal-body {
+        padding: 20px;
+    }
+
+    .projet-personnel-modal-close {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .markdown-content h1 {
+        font-size: 20px;
+    }
+
+    .markdown-content h2 {
+        font-size: 16px;
+    }
+
+    .markdown-content h3 {
+        font-size: 14px;
+    }
+
+    .markdown-content {
+        font-size: 13px;
+    }
 }
 
 @keyframes float {
