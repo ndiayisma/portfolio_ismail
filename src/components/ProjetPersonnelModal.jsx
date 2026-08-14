@@ -13,7 +13,9 @@ export const ProjetPersonnelModal = ({ isOpen, onClose }) => {
             'Création d’une interface simple, lisible et adaptée à la découverte',
             'Base solide pour évoluer vers une véritable ressource communautaire plus complète'
         ],
-        stack: ['Next.js', 'TailwindCSS', 'Design web'],
+        stack: [{name: 'Next.js', icon: 'devicon-nextjs-plain'}, 
+            {name: 'TailwindCSS', icon: 'devicon-tailwindcss-plain'}, 
+        ],
         link: 'https://github.com/ndiayisma/ism-fgc-glossary'
     };
 
@@ -44,7 +46,15 @@ export const ProjetPersonnelModal = ({ isOpen, onClose }) => {
                         </ul>
 
                         <h2>Stack</h2>
-                        <p>{project.stack.join(' • ')}</p>
+                            <div className="projet-personnel-stack-list" aria-label="Technologies utilisées">
+                                {project.stack.map((item) => (
+                                    <span key={item.name} className="projet-personnel-stack-item" title={item.name} aria-label={item.name}>
+                                        <span className="projet-personnel-stack-bullet" aria-hidden="true" />
+                                        <i className={`${item.icon} colored`} aria-hidden="true" />
+                                        <span className="projet-personnel-stack-name">{item.name}</span>
+                                    </span>
+                                ))}
+                            </div>
                     </div>
                 </div>
 

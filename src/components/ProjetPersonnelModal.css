@@ -223,6 +223,40 @@
     margin: 16px 0;
 }
 
+.projet-personnel-stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.projet-personnel-stack-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 107, 53, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92);
+    white-space: nowrap;
+}
+
+.projet-personnel-stack-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
+    flex: 0 0 auto;
+}
+
+.projet-personnel-stack-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
 /* Scrollbar styling */
 .projet-personnel-modal-content::-webkit-scrollbar {
     width: 8px;

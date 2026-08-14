@@ -181,6 +181,36 @@
   opacity: 0.8;
 }
 
+.conventio-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.conventio-stack-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 107, 157, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.conventio-stack-item i {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.conventio-stack-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .conventio-modal {
     width: 95%;

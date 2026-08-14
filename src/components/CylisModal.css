@@ -181,6 +181,40 @@
   opacity: 0.8;
 }
 
+.cylis-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cylis-stack-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 154, 86, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.cylis-stack-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff9a56, #667eea);
+  box-shadow: 0 0 10px rgba(255, 154, 86, 0.4);
+  flex: 0 0 auto;
+}
+
+.cylis-stack-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .cylis-modal {
     width: 95%;

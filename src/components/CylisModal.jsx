@@ -13,7 +13,9 @@ export const CylisModal = ({ isOpen, onClose }) => {
       'Structuration du contenu pour améliorer la lisibilité et la compréhension du visiteur',
       'Mise en ligne d’un site prêt à être présenté à un client ou à une structure partenaire'
     ],
-    stack: ['WordPress', 'Design web', 'SEO de base'],
+    stack: [{name: 'WordPress', icon: 'devicon-wordpress-plain'},
+       {name: 'Design web', icon: 'devicon-illustrator-plain'},
+        {name: 'SEO de base', icon: 'devicon-seo-plain'}],
     link: 'https://cylis.net'
   };
 
@@ -49,7 +51,14 @@ export const CylisModal = ({ isOpen, onClose }) => {
               </ul>
 
               <h2>Stack</h2>
-              <p>{project.stack.join(' • ')}</p>
+              <div className="cylis-stack-list" aria-label="Technologies utilisées">
+                {project.stack.map((item) => (
+                  <span key={item.name} className="cylis-stack-item" title={item.name} aria-label={item.name}>
+                    <span className="cylis-stack-bullet" aria-hidden="true" />
+                    <span className="cylis-stack-name">{item.name}</span>
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
