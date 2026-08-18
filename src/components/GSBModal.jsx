@@ -26,6 +26,10 @@ export const GSBModal = ({ isOpen, onClose }) => {
       { name: 'Android Studio', icon: 'devicon-androidstudio-plain' },
       { name: 'Postman', icon: 'devicon-postman-plain' }
     ],
+    demos: [
+      { src: '/GSB/pageConnexion.png', alt: 'Écran de connexion GSB-Express' },
+      { src: '/GSB/listePraticiens.png', alt: 'Écran d’accueil GSB-Express' }
+    ],
     link: 'https://github.com/ndiayisma/api-rest-gsb'
   };
 

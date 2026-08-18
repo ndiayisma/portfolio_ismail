@@ -216,6 +216,32 @@
   font-weight: 600;
 }
 
+.conventio-carousel-dot {
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+}
+
+.conventio-carousel-dot::before {
+  content: none !important;
+}
+
+.conventio-carousel-dot.is-active {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.conventio-carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
 @media (max-width: 768px) {
   .conventio-modal {
     width: 95%;

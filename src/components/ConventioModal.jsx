@@ -41,8 +41,12 @@ export const ConventioModal = ({ isOpen, onClose }) => {
     demos: [
       { src: '/ExempleConventio.png', alt: 'Vue globale de Conventio' },
       { src: '/Conventio/connectConventio.png', alt: 'Écran de connexion Conventio' },
-      { src: '/Conventio/menuDemande.png', alt: 'Menu des demandes des collectes d\'informations' },
-      { src: '/Conventio/formulaireDemande.png', alt: 'Formulaire de demande de convention' },
+      { src: '/Conventio/Etudiant/menuDemande.png', alt: 'Menu des demandes des collectes d\'informations' },
+      { src: '/Conventio/Etudiant/formulaireDemande.png', alt: 'Formulaire de demande de convention' },
+      { src: '/Conventio/DDF/MenuConvention.png', alt: 'Menu affichant la liste des conventions' },
+      { src: '/Conventio/DDF/DetailConevntion.png', alt: 'Detail d\'une convention' },
+      { src: '/Conventio/DDF/DetailConvention2.png', alt: 'Detail d\'une convention' },
+      { src: '/Conventio/DDF/miseAJourConvention.png', alt: 'Detail d\'une convention' },
     ],
     link: 'https://github.com/maxervj/Conventio'
   };
@@ -109,13 +113,13 @@ export const ConventioModal = ({ isOpen, onClose }) => {
                   {project.demos.map((demo, index) => (
                     <div
                       key={demo.src}
-                      className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                      className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-in-out ${
                         index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
                       }`}
                     >
                       <img
                         src={demo.src}
-                        className="absolute block h-full w-full object-contain"
+                        className="block max-h-full max-w-full object-contain"
                         alt={demo.alt}
                       />
                     </div>
@@ -144,9 +148,7 @@ export const ConventioModal = ({ isOpen, onClose }) => {
                     <button
                       key={demo.src}
                       type="button"
-                      className={`h-3 w-3 rounded-full transition ${
-                        index === currentSlide ? 'bg-white' : 'bg-white/45 hover:bg-white/70'
-                      }`}
+                      className={`conventio-carousel-dot ${index === currentSlide ? 'is-active' : ''}`}
                       aria-current={index === currentSlide}
                       aria-label={`Slide ${index + 1}`}
                       onClick={() => setCurrentSlide(index)}
