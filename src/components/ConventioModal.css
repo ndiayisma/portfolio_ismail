@@ -206,6 +206,11 @@
   line-height: 1;
 }
 
+.conventio-stack-item i.devicon-symfony-original,
+.conventio-stack-item i.devicon-github-plain {
+  color: #f8fafc !important;
+}
+
 .conventio-stack-name {
   font-size: 13px;
   font-weight: 600;

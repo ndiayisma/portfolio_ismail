@@ -23,7 +23,8 @@ export const GSBModal = ({ isOpen, onClose }) => {
       { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
       { name: 'Java', icon: 'devicon-java-plain' },
       { name: 'Retrofit', icon: 'devicon-androidstudio-plain' },
-      { name: 'Android Studio', icon: 'devicon-androidstudio-plain' }
+      { name: 'Android Studio', icon: 'devicon-androidstudio-plain' },
+      { name: 'Postman', icon: 'devicon-postman-plain' }
     ],
     link: 'https://github.com/ndiayisma/api-rest-gsb'
   };
