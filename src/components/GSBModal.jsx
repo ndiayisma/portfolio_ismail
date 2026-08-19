@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './GSBModal.css';
 
 export const GSBModal = ({ isOpen, onClose }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   if (!isOpen) return null;
 
   const project = {
@@ -31,6 +34,14 @@ export const GSBModal = ({ isOpen, onClose }) => {
       { src: '/GSB/listePraticiens.png', alt: 'Écran d’accueil GSB-Express' }
     ],
     link: 'https://github.com/ndiayisma/api-rest-gsb'
+  };
+
+  const previousSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? project.demos.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === project.demos.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -72,6 +83,56 @@ export const GSBModal = ({ isOpen, onClose }) => {
                     <span className="gsb-stack-name">{item.name}</span>
                   </span>
                 ))}
+              </div>
+
+              <h2>Demos</h2>
+              <div className="relative w-full">
+                <div className="relative h-56 overflow-hidden rounded-lg border border-white/10 bg-black/20 md:h-96">
+                  {project.demos.map((demo, index) => (
+                    <div
+                      key={demo.src}
+                      className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-in-out ${
+                        index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      }`}
+                    >
+                      <img
+                        src={demo.src}
+                        className="block max-h-full max-w-full object-contain"
+                        alt={demo.alt}
+                      />
+                    </div>
+                  ))}
+
+                  <button
+                    type="button"
+                    onClick={previousSlide}
+                    className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/35 px-3 py-1 text-xl text-white transition hover:bg-black/55"
+                    aria-label="Image précédente"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    type="button"
+                    onClick={nextSlide}
+                    className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/35 px-3 py-1 text-xl text-white transition hover:bg-black/55"
+                    aria-label="Image suivante"
+                  >
+                    ›
+                  </button>
+                </div>
+
+                <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 gap-3">
+                  {project.demos.map((demo, index) => (
+                    <button
+                      key={demo.src}
+                      type="button"
+                      className={`gsb-carousel-dot ${index === currentSlide ? 'is-active' : ''}`}
+                      aria-current={index === currentSlide}
+                      aria-label={`Slide ${index + 1}`}
+                      onClick={() => setCurrentSlide(index)}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
