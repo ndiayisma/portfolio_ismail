@@ -32,11 +32,18 @@ export const Documents = () => {
                                 className="bg-slate-900 rounded-lg border-2 border-cyan-400 overflow-hidden hover:shadow-lg hover:shadow-cyan-400/50 transition-all"
                             >
                                 {/* Aperçu PDF */}
-                                <div className="w-full h-64 bg-black border-b-2 border-cyan-400 overflow-hidden">
+                                <div className="relative w-full h-64 bg-black border-b-2 border-cyan-400 overflow-hidden">
                                     <iframe
                                         src={`${doc.file}#toolbar=0&navpanes=0`}
                                         className="w-full h-full"
                                         title={`Aperçu ${doc.title}`}
+                                    />
+                                    <a
+                                        href={doc.file}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="absolute inset-0"
+                                        aria-label={`Ouvrir ${doc.title}`}
                                     />
                                 </div>
 
