@@ -3,9 +3,9 @@ import { RevealOnScroll } from "../RevealOnScroll";
 export const Cursus = () => {
     const formations = [
         {
-            titre: "L3 Développement Web - Alternance",
+            titre: "L3 Concepteur Développeur Web Full Stack",
             periode: "2026-2027",
-            lieu: "MyDigitalSchool - Annecy"
+            lieu: "Campus Saint-Michel - Annecy"
         },
         {
             titre: "BTS SIO - Option SLAM",

@@ -14,10 +14,10 @@ export const Home = () => {
                     </h1>
                     <div className="h-1 w-32 bg-gradient-to-r from-cyan-400 via-blue-400 to-transparent mb-8"></div>
                     <h2 className="text-2xl md:text-4xl font-semibold bg-gradient-to-r from-gray-300 to-gray-400 bg-clip-text text-transparent mb-8">
-                        Développeur Web & Étudiant en BTS SIO
+                        Développeur Web & Étudiant en L3 Concepteur développeur web full stack
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl">
-                        En tant que développeur passionné par la programmation et étudiant en 2e année de BTS SIO à ce jour,
+                        Passionné par la programmation et étudiant en L3 Concepteur développeur web full stack,
                         mon parcours se focalise sur l'univers dynamique du développement web, les technologies backend et la conception de logiciels.
                         Je suis toujours à la recherche de nouveaux défis et
                         d'opportunités pour apprendre davantage et grandir dans ce domaine en constante évolution.
